@@ -192,14 +192,49 @@ class SearchDtoTest extends TestCase
 
     public function provideGetQueryTermsTests(): iterable
     {
-        yield 'empty query' => ['', []];
-        yield 'query with one term' => ['foo', ['foo']];
-        yield 'query with multiple terms' => ['foo bar', ['foo', 'bar']];
-        yield 'query with multiple terms and extra spaces' => [' foo    bar ', ['foo', 'bar']];
-        yield 'query with quoted terms' => ['foo "bar baz"', ['foo', 'bar baz']];
-        yield 'query with quoted terms and escaped quotes' => ['foo "bar \\"baz"', ['foo', 'bar \\"baz']];
-        yield 'query with quoted terms and extra spaces' => ['foo "  bar   baz" ', ['foo', 'bar   baz']];
-        yield 'query with multiple quoted terms' => ['"foo bar" "baz qux"', ['foo bar', 'baz qux']];
-        yield 'query with multiple terms and multiple quoted terms' => ['foo bar "foo bar" baz "baz qux" qux', ['foo', 'bar', 'foo bar', 'baz', 'baz qux', 'qux']];
+        yield 'empty query' => [
+            '',
+            [],
+        ];
+
+        yield 'query with one term' => [
+            'foo',
+            ['foo'],
+        ];
+
+        yield 'query with multiple terms' => [
+            'foo bar',
+            ['foo', 'bar'],
+        ];
+
+        yield 'query with multiple terms and extra spaces' => [
+            ' foo    bar ',
+            ['foo', 'bar'],
+        ];
+
+        yield 'query with quoted terms' => [
+            'foo "bar baz"',
+            ['foo', 'bar baz'],
+        ];
+
+        yield 'query with quoted terms and escaped quotes' => [
+            'foo "bar \\"baz"',
+            ['foo', 'bar \\"baz'],
+        ];
+
+        yield 'query with quoted terms and extra spaces' => [
+            'foo "  bar   baz" ',
+            ['foo', 'bar   baz'],
+        ];
+
+        yield 'query with multiple quoted terms' => [
+            '"foo bar" "baz qux"',
+            ['foo bar', 'baz qux'],
+        ];
+
+        yield 'query with multiple terms and multiple quoted terms' => [
+            'foo bar "foo bar" baz "baz qux" qux',
+            ['foo', 'bar', 'foo bar', 'baz', 'baz qux', 'qux'],
+        ];
     }
 }
