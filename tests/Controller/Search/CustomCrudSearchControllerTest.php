@@ -5,8 +5,6 @@ namespace EasyCorp\Bundle\EasyAdminBundle\Tests\Controller\Search;
 use EasyCorp\Bundle\EasyAdminBundle\Test\AbstractCrudTestCase;
 use EasyCorp\Bundle\EasyAdminBundle\Tests\TestApplication\Controller\DashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Tests\TestApplication\Controller\Search\CustomCrudSearchController;
-use EasyCorp\Bundle\EasyAdminBundle\Tests\TestApplication\Controller\Search\DefaultCrudSearchController;
-use EasyCorp\Bundle\EasyAdminBundle\Tests\TestApplication\Entity\BlogPost;
 
 class CustomCrudSearchControllerTest extends AbstractCrudTestCase
 {
@@ -42,27 +40,27 @@ class CustomCrudSearchControllerTest extends AbstractCrudTestCase
         $totalNumberOfPosts = 20;
         $numOfPostsWrittenByEachAuthor = 4;
 
-        yield "search by blog post title yields no results" => [
+        yield 'search by blog post title yields no results' => [
             'blog post',
             0,
         ];
 
-        yield "search by blog post slug yields no results" => [
+        yield 'search by blog post slug yields no results' => [
             'blog-post',
             0,
         ];
 
-        yield "search by author email" => [
+        yield 'search by author email' => [
             '@example.com',
             $totalNumberOfPosts,
         ];
 
-        yield "quoted search by author email" => [
+        yield 'quoted search by author email' => [
             '"user4@"',
             $numOfPostsWrittenByEachAuthor,
         ];
 
-        yield "multiple search by author email (partial or complete)" => [
+        yield 'multiple search by author email (partial or complete)' => [
             '"user2@example.com" "user4@"',
             2 * $numOfPostsWrittenByEachAuthor,
         ];

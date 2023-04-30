@@ -140,12 +140,12 @@ class SearchDtoTest extends TestCase
     }
 
     public function provideSortConfigMergeTests(): iterable
-     {
-         yield 'no default sort, no custom sort' => [
-             [],
-             [],
-             [],
-         ];
+    {
+        yield 'no default sort, no custom sort' => [
+            [],
+            [],
+            [],
+        ];
 
         yield 'no default sort, custom sort' => [
             [],

@@ -80,7 +80,7 @@ final class SearchDto
      * account that quoted strings must be considered as a single term.
      * For example:
      *  'foo bar' => ['foo', 'bar']
-     *  'foo "bar baz" qux' => ['foo', 'bar baz', 'qux']
+     *  'foo "bar baz" qux' => ['foo', 'bar baz', 'qux'].
      */
     public function getQueryTerms(): array
     {

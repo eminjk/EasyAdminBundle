@@ -18,6 +18,4 @@ class CustomCrudSearchController extends AbstractCrudController
         return parent::configureCrud($crud)
             ->setSearchFields(['id', 'author.email']);
     }
-
-
 }

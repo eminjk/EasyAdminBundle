@@ -117,42 +117,42 @@ class DefaultCrudSearchControllerTest extends AbstractCrudTestCase
     {
         $totalNumberOfPosts = 20;
 
-        yield "search all blog posts" => [
+        yield 'search all blog posts' => [
             [],
             'blog post',
-            $totalNumberOfPosts
+            $totalNumberOfPosts,
         ];
 
-        yield "default search is OR search" => [
+        yield 'default search is OR search' => [
             [],
             'post 17',
-            $totalNumberOfPosts
+            $totalNumberOfPosts,
         ];
 
-        yield "use quotes to make an AND search" => [
+        yield 'use quotes to make an AND search' => [
             [],
             '"post 17"',
-            1
+            1,
         ];
 
-        yield "quoted terms with inside quotes" => [
+        yield 'quoted terms with inside quotes' => [
             [
                 ['title' => 'Foo "Bar Baz', 'slug' => 'foo-bar-baz'],
             ],
             '"foo "bar"',
-            1
+            1,
         ];
 
         yield "multiple quoted terms (it's an OR of two AND terms)" => [
             [],
             '"post 17" "post 18"',
-            2
+            2,
         ];
 
         yield "multiple quoted terms and unquoted terms (it's an OR search again)" => [
             [],
             '"post 17" "post 18" post 5',
-            $totalNumberOfPosts
+            $totalNumberOfPosts,
         ];
     }
 
