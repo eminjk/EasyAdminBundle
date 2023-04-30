@@ -101,7 +101,7 @@ final class EntityRepository implements EntityRepositoryInterface
                 } elseif ($propertyConfig['is_guid'] && $isUuidQueryTerm) {
                     $parameterName = sprintf('query_for_uuids_%d', $queryTermIndex);
                     $queryBuilder->orWhere(sprintf('%s.%s = :%s', $entityName, $propertyName, $parameterName))
-                        ->setParameter($parameterName, $dqlParameters['uuid_query'], 'uuid' === $propertyDataType ? 'uuid' : null);
+                        ->setParameter($parameterName, $dqlParameters['uuid_query'], 'uuid' === $propertyConfig['property_data_type'] ? 'uuid' : null);
                 } elseif ($propertyConfig['is_ulid'] && $isUlidQueryTerm) {
                     $parameterName = sprintf('query_for_ulids_%d', $queryTermIndex);
                     $queryBuilder->orWhere(sprintf('%s.%s = :%s', $entityName, $propertyName, $parameterName))
