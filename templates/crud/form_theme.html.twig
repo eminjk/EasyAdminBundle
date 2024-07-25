@@ -891,3 +891,7 @@
         </button>
     </div>
 {% endblock %}
+
+{% block ea_embedded_collection_row %}
+    {{ include(ea.templatePath('crud/field/embed')) }}
+{% endblock %}
