@@ -52,7 +52,7 @@
                     embedContent.querySelectorAll('.global-actions a').forEach(action => {
                         const target = new URL(action.href)
                         const current = new URL(referrer);
-                        target.searchParams.set('relatedEntityId', current.searchParams.get('entityId'));
+                        target.searchParams.set('relatedEntityId', {{ entity.primaryKeyValue }});
                         target.searchParams.set('referrer', referrer);
                         action.href = target.toString();
                     })
